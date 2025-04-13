@@ -1,7 +1,17 @@
 const fastify = require("fastify");
-const server = fastify();
-const emailRoutes = require("./routes/email");
 const EmailRoutes = require("./routes/email");
+const cors = require("@fastify/cors");
+const formbody = require("@fastify/formbody");
+
+const server = fastify();
+
+const corsOptions = {
+  credentials: true,
+  origin: /localhost\:5173/,
+};
+
+server.register(cors, corsOptions);
+server.register(formbody);
 
 server.register(EmailRoutes);
 

@@ -11,7 +11,7 @@ async function sendEmail(request, reply) {
   try {
     await MailQueue.add({
       to: email,
-      from: "gdsvahl@inf.ufpel.edu.br",
+      from: process.env.EMAIL_FROM,
       subject: "Assinatura Confirmada!",
       text: template,
     });
