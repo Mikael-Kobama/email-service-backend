@@ -4,43 +4,59 @@
 ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
+Este projeto é um **Serviço de Disparo de Emails em Lote**, desenvolvido para demonstrar o uso do **Redis** como um *message broker*. Ele foi projetado para gerenciar e processar grandes volumes de envio de emails de forma assíncrona, garantindo performance e escalabilidade.
 
-Este projeto foi desenvolvido como parte da disciplina de Banco de Dados Avançado do curso de Ciência da Computação da [Universidade Federal de Pelotas](https://portal.ufpel.edu.br/). O objetivo principal é demonstrar o uso do banco de dados NoSQL Redis como message broker em um sistema de disparo de e-mails em lote.
+O projeto foi originalmente construído como parte de um estudo aprofundado sobre bancos de dados NoSQL e sistemas de filas.
 
-Este projeto é um clone do repositório [redis-dba](https://github.com/guivahl/redis-dba), com algumas adições de funcionalidades.
+---
 
-## Tecnologias Utilizadas
+## Tecnologias e Recursos
 
-- [Redis](https://redis.io/) - Banco de dados NoSQL para armazenar as mensagens em filas
-- [Node.js](https://nodejs.org/) - Ambiente de execução JavaScript do lado do servidor
-  - [Bull](https://github.com/OptimalBits/bull) - Biblioteca para manipulação de filas de mensagens utilizando Redis
-  - [AWS SDK for JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SES.html#constructor-property) - SDK da AWS para envio de e-mails utilizando o serviço Simple Email Service (SES)
+Este serviço utiliza uma arquitetura baseada em filas de mensagens para otimizar o fluxo de trabalho. As principais tecnologias e bibliotecas utilizadas são:
 
-## Como Executar
+* **Node.js**: Ambiente de execução JavaScript para construir o backend do serviço.
+* **Redis**: Banco de dados NoSQL utilizado como message broker para gerenciar as filas de mensagens de email de forma eficiente e confiável.
+* **Bull**: Uma poderosa biblioteca para manipulação de filas de mensagens com Redis, facilitando o gerenciamento de jobs.
+* **AWS SES (Simple Email Service)**: Serviço da AWS para envio de emails, integrado ao sistema para garantir alta entrega e confiabilidade.
+* **AWS SDK for JavaScript**: Utilizado para a comunicação com o serviço AWS SES.
 
-1. Clone o repositório e acesse a pasta do projeto
-   ```shell
-   git clone https://github.com/Fernanda-Kipper/email-service-backend.git
-   cd nome-do-repositorio
+---
+
+## Como Executar o Projeto
+
+Siga os passos abaixo para ter o projeto rodando em sua máquina local.
+
+1.  **Clone o repositório** e acesse a pasta do projeto:
+    ```bash
+    git clone [URL_DO_SEU_REPOSITÓRIO]
+    cd nome-do-repositorio
     ```
-2. Instale os pacotes utilizando o comando `npm install`
-3. Crie um arquivo `.env` na raiz do projeto e insira suas credencias. Utilize o arquivo `.env.example` como base.
-4. Execute o projeto com o comando `npm start`
+
+2.  **Instale as dependências** do Node.js:
+    ```bash
+    npm install
+    ```
+
+3.  **Configure as variáveis de ambiente**:
+    Crie um arquivo `.env` na raiz do projeto, usando o `.env.example` como base, e insira suas credenciais da AWS e de conexão com o Redis.
+
+4.  **Inicie a aplicação**:
+    ```bash
+    npm start
+    ```
 
 ### Frontend
 
-Você pode executar o frontend para se comunicar com esta aplicação através de requisições HTTP. Para isso, siga as instruções abaixo:
+Este serviço pode ser consumido por uma aplicação frontend. Você pode clonar e executar o projeto de exemplo para testar o disparo de emails.
 
-1. Clone esse [repositório](https://github.com/Fernanda-Kipper/membership-frontend)
-```
-git clone https://github.com/Fernanda-Kipper/membership-frontend
-```
+1.  Clone o repositório do frontend de exemplo:
+    ```bash
+    git clone [https://github.com/Fernanda-Kipper/membership-frontend](https://github.com/Fernanda-Kipper/membership-frontend)
+    ```
+2.  Siga as instruções de configuração e execução no `README.md` do repositório do frontend.
 
-2. Siga as instruções fornecidas no repositório do frontend para configurar e executar o projeto.
+---
 
-## Vídeos
+## Agradecimentos
 
-Este projeto serviu como base para uma série de vídeos no meu canal do YouTube, onde compartilho conhecimentos e demonstro a construção de alguns componentes do projeto. 
-
-- [Vídeo: Construção da API Rest](https://www.youtube.com/live/GVF--Rl3bP4?feature=share)
-- [Vídeo: Desenvolvimento de Testes Unitários](https://www.youtube.com/live/GVF--Rl3bP4?feature=share)
+Este projeto foi inspirado e teve como base o repositório `redis-dba` de **Guilherme Vahl** e também o trabalho de **Fernanda Kipper**. Agradeço a ambos por compartilharem conteúdos tão relevantes, que foram essenciais para o aprendizado e aprimoramento deste projeto.
